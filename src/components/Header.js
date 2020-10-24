@@ -19,8 +19,7 @@ const useStyles = makeStyles((theme) => ({
         color: 'blue',
         letterSpacing: '0.25em',
         fontWeight: '900',
-        marginTop: '15px'
-        
+        marginTop: '15px',
     },
     date: {
         fontSize: '1.2em',
@@ -49,7 +48,6 @@ function Header(props) {
         <>
         <Hidden smDown>
         <div className={classes.header}>
-        
             <div className={classes.date}>
                 <p><Moment format='MMMM Do YYYY'>{date}</Moment></p>
                 <p><Moment format='h:mm:ss'>{date}</Moment></p>
@@ -57,17 +55,12 @@ function Header(props) {
                 <Switch onChange={props.darkTheme} />
             </div>
 
-            
-            <Link to='/'>
-            <Typography><h1 className={classes.title}> Wild News</h1></Typography>
+            <Link to='/' style={{ textDecoration: 'none' }}>
+                <Typography><h1 className={classes.title}> Wild News</h1></Typography>
             </Link>
-            
-
             <div className={classes.weather}>
                 <Weather />
-            </div>
-            
-            
+            </div>            
         </div>        
         <Paper elevation={2} className={classes.money}>
           <MoneyTicker />

@@ -19,7 +19,7 @@ function Argentina() {
 
     function FetchApi() {
         const apiKey = 'apiKey=05ac4cf6c947486d95affba88465ea66'; 
-        const apiUrl = `https://newsapi.org/v2/top-headlines?country=ar&${apiKey}`;
+        const apiUrl = `https://newsapi.org/v2/top-headlines?country=ar&language"=en&${apiKey}`;
         axios.get(apiUrl)
         .then(response => response.data)
         .then(data => {
