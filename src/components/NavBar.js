@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import TopNews from './TopNews';
 import Header from './Header';
 import Argentina from './Argentina';
+import Technology from './Technology';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -77,6 +78,11 @@ const useStyles = makeStyles((theme) => ({
       address: '/latest-news',
     },
     {
+      text: 'Politics',
+      address: '/politics',
+      
+    },
+    {
       text: 'Argentina',
       address: '/argentina', 
     },
@@ -93,6 +99,12 @@ const useStyles = makeStyles((theme) => ({
       address: '/society',
       
     },
+    {
+      text: 'Technology',
+      address: '/technology',
+      
+    },
+    
   ]
 
   return (
@@ -193,6 +205,12 @@ const useStyles = makeStyles((theme) => ({
         <Route path='/sports'>
           <Header />
           Sports
+        </Route>
+        <Route path='/technology'>
+          <Container>
+            <Header />
+            <Technology />
+          </Container> 
         </Route>
       </Switch>
 

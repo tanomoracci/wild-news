@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core'
 import React, {useState, useEffect} from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 import axios from 'axios'
 import NewsCard from './NewsCard'
 
@@ -19,13 +19,12 @@ function Argentina() {
 
     function FetchApi() {
         const apiKey = 'apiKey=05ac4cf6c947486d95affba88465ea66'; 
-        const apiUrl = `https://newsapi.org/v2/top-headlines?country=ar&language"=en&${apiKey}`;
+        const apiUrl = `https://newsapi.org/v2/top-headlines?country=ar&${apiKey}`;
         axios.get(apiUrl)
         .then(response => response.data)
         .then(data => {
             const freshNews = data.articles;
             setNews(freshNews);
-            console.log(freshNews)
          })
       
         }
