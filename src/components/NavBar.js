@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,8 +13,6 @@ import Header from './Header';
 import Argentina from './Argentina';
 
 
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1, 
@@ -22,16 +20,12 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     color: 'black',
     backgroundColor: 'transparent',
-    
-    
   },
   list: {
     
     display: 'flex',
     justifyContent: 'space-around',
     width: '100%',
-    
-
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -42,13 +36,23 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: '0.15em',
     textAlign: 'center',
     marginLeft: '-60px'
-
   },
   menuTitle: {
     textDecoration: 'none',
     textAlign: 'center',
     textTransform: 'uppercase'
-  }
+  },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: '240',
+      flexShrink: 0,
+    },
+    height: '75%'
+  },
+  DrawerList: {
+    width: 280,
+    marginLeft: '20px'
+  },
 }));
 
 
@@ -58,7 +62,16 @@ const useStyles = makeStyles((theme) => ({
   const { history } = props;
   console.log(history);
 
+  const [DrawerOpen, setDrawerOpen] = React.useState(false)
+  function handleDrawerToggle() {
+    setDrawerOpen(!DrawerOpen)
+  }
+
   const itemList = [
+    {
+      text: 'HOME',
+      address: '/',
+    },
     {
       text: 'Latest News',
       address: '/latest-news',
@@ -89,7 +102,12 @@ const useStyles = makeStyles((theme) => ({
     
       <AppBar position="static" className={classes.appBar}>
         <Toolbar color="transparent">
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton edge="start" 
+          className={classes.menuButton} 
+          color="inherit" 
+          aria-label="menu"
+          onClick={handleDrawerToggle}
+          >
             <MenuIcon />
           </IconButton>
 
@@ -112,6 +130,35 @@ const useStyles = makeStyles((theme) => ({
           <Hidden mdUp>
             <Typography className={classes.title}><h2> Wild News</h2></Typography>
           </Hidden>
+
+          {/* Drawer */}
+          <Drawer
+            variant="temporary"
+            anchor="left"
+            open={DrawerOpen}
+            onClose={handleDrawerToggle}
+            
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+          >
+            <List className={classes.DrawerList}>
+
+                    { itemList.map((item, index) => {    
+                      return (
+                        
+                        <Link to={item.address} className={classes.menuTitle} onClick={handleDrawerToggle}>
+                        <ListItem button key={item.text}  >
+                          <ListItemText primary={item.text}></ListItemText>
+                        </ListItem>
+                        </Link>
+                      )
+                    })
+                    }
+                    </List>
+          </Drawer>
+
+
         
         </Toolbar>
       </AppBar>
