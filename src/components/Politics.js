@@ -12,14 +12,14 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Argentina() {
+function Politics() {
 
     const classes = useStyles()
     const [news, setNews] = useState([])
 
     function FetchApi() {
         const apiKey = 'apiKey=05ac4cf6c947486d95affba88465ea66'; 
-        const apiUrl = `https://newsapi.org/v2/top-headlines?country=ar&${apiKey}`;
+        const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&category=politics&${apiKey}`;
         axios.get(apiUrl)
         .then(response => response.data)
         .then(data => {
@@ -55,4 +55,4 @@ function Argentina() {
     )
 }
 
-export default Argentina
+export default Politics

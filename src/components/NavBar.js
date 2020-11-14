@@ -12,7 +12,10 @@ import TopNews from './TopNews';
 import Header from './Header';
 import Argentina from './Argentina';
 import Technology from './Technology';
-
+import Politics from './Politics';
+import Business from './Business';
+import Sports from './Sports';
+import Society from './Society'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +39,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.2em',
     letterSpacing: '0.15em',
     textAlign: 'center',
-    marginLeft: '-60px'
+    marginLeft: '-60px',
+    color: 'blue'
   },
   menuTitle: {
     textDecoration: 'none',
@@ -73,10 +77,7 @@ const useStyles = makeStyles((theme) => ({
       text: 'HOME',
       address: '/',
     },
-    {
-      text: 'Latest News',
-      address: '/latest-news',
-    },
+    
     {
       text: 'Politics',
       address: '/politics',
@@ -87,16 +88,16 @@ const useStyles = makeStyles((theme) => ({
       address: '/argentina', 
     },
     {
-      text: 'Bussiness',
-      address: '/bussiness',
+      text: 'Business',
+      address: '/business',
     },
     {
       text: 'Sports',
       address: '/sports',
     },
     {
-      text: 'Society',
-      address: '/society',
+      text: 'Entertainment',
+      address: '/entertainment',
       
     },
     {
@@ -151,7 +152,7 @@ const useStyles = makeStyles((theme) => ({
             onClose={handleDrawerToggle}
             
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true
             }}
           >
             <List className={classes.DrawerList}>
@@ -178,43 +179,55 @@ const useStyles = makeStyles((theme) => ({
       <Switch>
         <Route exact path='/'>
             <Container>
-              <Header />
+              <Header darkTheme={props.darkTheme} />
               <TopNews />
             </Container>
         </Route>
-        <Route exact path='/society'>
+        <Route exact path='/entertainment'>
               <Container>
-              <Header />
-              Society
+              <Header darkTheme={props.darkTheme} />
+              <Society />
               </Container>
         </Route>
+
         <Route path='/argentina'>
           <Container>
-            <Header />
+            <Header darkTheme={props.darkTheme} />
             <Argentina />
           </Container>  
         </Route>
-        <Route path='/latest-news'>
-          <Header />
-          latest news
+        
+        <Route path='/business'>
+          <Container>
+            <Header darkTheme={props.darkTheme} />
+            <Business />
+          </Container>
         </Route>
-        <Route path='/bussiness'>
-          <Header />
-          bussines
-        </Route>
+
         <Route path='/sports'>
-          <Header />
-          Sports
+          <Container>
+              <Header darkTheme={props.darkTheme} />
+              <Sports />
+          </Container>
         </Route>
+
         <Route path='/technology'>
           <Container>
-            <Header />
+            <Header darkTheme={props.darkTheme} />
             <Technology />
           </Container> 
         </Route>
+
+        <Route exact path='/politics'>
+              <Container>
+              <Header darkTheme={props.darkTheme} />
+              <Politics/>
+              </Container>
+        </Route>
+
       </Switch>
 
-      </Router>
+    </Router>
   );
 }
 

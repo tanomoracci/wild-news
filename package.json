@@ -12,6 +12,8 @@
     "fontsource-roboto": "^3.0.3",
     "moment": "^2.29.1",
     "react": "^17.0.1",
+    "react-animated-slider": "^2.0.0",
+    "react-awesome-slider": "^4.1.0",
     "react-dom": "^17.0.1",
     "react-moment": "^1.0.0",
     "react-router-dom": "^5.2.0",

@@ -50,7 +50,7 @@ function Header(props) {
         <div className={classes.header}>
             <div className={classes.date}>
                 <p><Moment format='MMMM Do YYYY'>{date}</Moment></p>
-                <p><Moment format='h:mm:ss'>{date}</Moment></p>
+                <p><Moment format='h:mm:ss'>{date}</Moment> Hs</p>
                 
                 <Switch onChange={props.darkTheme} />
             </div>
@@ -63,7 +63,7 @@ function Header(props) {
             </div>            
         </div>        
         <Paper elevation={2} className={classes.money}>
-          <MoneyTicker />
+          {/* <MoneyTicker /> */}
         </Paper>
         </Hidden>
         </>

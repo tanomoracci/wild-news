@@ -23,7 +23,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Paper>
         <CssBaseline />
-          <NavBar />
+          <NavBar darkTheme={dark}/>
             <Container>
                    
             </Container>

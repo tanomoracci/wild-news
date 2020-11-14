@@ -26,7 +26,7 @@ function Weather() {
     const [weather, setWeather] = useState();
     const [iconUrl, setIconUrl] = useState();
 
-    const selectedCity = 'London'
+    const selectedCity = 'buenos+aires'
     const apiKey = '0d8deaa85909ba7427becb57b3d70cc4';
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${apiKey}&units=metric`;
 
